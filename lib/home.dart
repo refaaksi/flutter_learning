@@ -21,13 +21,32 @@ class MyHomePage extends StatelessWidget {
               color: Colors.redAccent,
               width: double.infinity,
               height: 120,
-              child: Text(
+              child: const Text(
                 "Options Menu",
                 style: TextStyle(
                     fontSize: 24,
                     color: Colors.white),
               )
-            )],
+            ),
+            const SizedBox(
+              height: 10
+            ),
+            ListTile(
+              onTap: () => Navigator.of(context).pushNamed(MyHomePage.routeName),
+              leading: Icon(Icons.home),
+              title: const Text("Home")
+            ),
+            ListTile(
+              onTap: () {} ,
+              leading: Icon(Icons.settings),
+              title: const Text("Settings"),
+            ),
+            ListTile(
+              onTap: () {},
+              leading: Icon(Icons.logout),
+              title: const Text("Logout")
+            )
+        ],
         ),
       ),
       body: ListView.builder(
