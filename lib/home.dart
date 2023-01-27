@@ -90,6 +90,9 @@ class MyHomePage extends StatelessWidget {
                     size: 25),
               ),
               child: ListTile(
+                onLongPress: () {
+
+                },
                 title: Text(name),
                 leading: CircleAvatar(
                   backgroundColor: Colors.redAccent,
