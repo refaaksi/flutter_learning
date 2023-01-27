@@ -2,18 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
 
 class MyHomePage extends StatelessWidget {
+  static const routeName = '/home';
   final Faker faker = Faker();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: const Text("Chat History"),
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(20),
+              alignment: Alignment.bottomLeft,
+              color: Colors.redAccent,
+              width: double.infinity,
+              height: 120,
+              child: Text(
+                "Options Menu",
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white),
+              )
+            )],
+        ),
       ),
       body: ListView.builder(
           padding: EdgeInsets.all(15),
           itemCount: 100,
           itemBuilder: (BuildContext context, int index) {
+            String name = faker.person.name();
             return Dismissible(
               key: Key(index.toString()),
               direction: DismissDirection.startToEnd,
@@ -50,8 +71,14 @@ class MyHomePage extends StatelessWidget {
                     size: 25),
               ),
               child: ListTile(
-                leading: CircleAvatar(),
-                title: Text(faker.person.name()),
+                title: Text(name),
+                leading: CircleAvatar(
+                  backgroundColor: Colors.redAccent,
+                  child: Text(
+                    name.trim().split(' ').map((l) => l[0]).take(2).join(),
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
                 subtitle: Text(faker.lorem.sentence()),
               )
             );
