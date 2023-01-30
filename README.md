@@ -1,6 +1,6 @@
 # flutter_learning
 
-A beignner Flutter project for learning.
+A beginner Flutter project for learning.
 
 ## Getting Started
 
